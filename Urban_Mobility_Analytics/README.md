@@ -96,3 +96,48 @@ Build an automated ETL pipeline to load CSV files into PostgreSQL.
 - Data Profiling
 - Data Validation
 - Exploratory Data Analysis (EDA)
+
+
+
+
+## 📅 Day 3 – PostgreSQL Integration & First Data Profiling
+
+### 🎯 Objective
+
+Connect Python to PostgreSQL and begin exploring the imported datasets.
+
+### ✅ Tasks Completed
+
+* Connected Python application to PostgreSQL using **SQLAlchemy**.
+* Successfully tested the database connection.
+* Queried **`information_schema.tables`** to discover all available tables.
+* Verified that **19 datasets** were successfully imported into PostgreSQL.
+* Retrieved the first table dynamically from the database.
+* Loaded the first dataset into a **Pandas DataFrame** using `pd.read_sql()`.
+* Performed initial data profiling:
+
+  * Checked dataset shape (**91,712 rows × 6 columns**).
+  * Inspected column names.
+  * Examined data types.
+  * Previewed the first five records using `df.head()`.
+
+### 📚 Key Concepts Learned
+
+* SQLAlchemy database connection
+* Executing SQL queries from Python
+* PostgreSQL metadata (`information_schema.tables`)
+* Reading SQL query results into Pandas
+* Difference between database metadata and actual table data
+* Basic DataFrame inspection (`shape`, `columns`, `dtypes`, `head()`)
+
+### 🚀 Outcome
+
+Successfully established the complete workflow from **Python → PostgreSQL → SQL Query → Pandas DataFrame**. This creates the foundation for automated profiling, data cleaning, and feature engineering in the upcoming stages of the project.
+
+### 🔜 Next Goal (Day 4)
+
+* Perform detailed data quality assessment.
+* Check missing values and duplicate records.
+* Identify unnecessary columns.
+* Convert date/time columns to appropriate data types.
+* Begin automating profiling for all 19 datasets.
