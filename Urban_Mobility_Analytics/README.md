@@ -1,143 +1,135 @@
-# 🚀 DS-365 | Urban Mobility Analytics
+# 🚖 Urban Mobility Analytics
 
-A 365-day Data Engineering & Data Science challenge focused on building production-ready data pipelines, analytics workflows, and machine learning solutions using real-world datasets.
-
----
-
-## 🎯 Project Goal
-
-The goal of this project is to master the complete Data Science lifecycle by working on a real-world urban mobility dataset.
-
-The project covers:
-
-- Data Engineering
-- SQL
-- PostgreSQL
-- Python
-- Data Analysis
-- Data Visualization
-- Machine Learning
-- Deployment
+A Data Science project built as part of my **DS-365 (365-Day Data Scientist Challenge)**. The objective of this project is to analyze Uber pickup data, perform exploratory data analysis (EDA), build machine learning models, and create an end-to-end data science workflow using Python and PostgreSQL.
 
 ---
 
-# 🛠 Tech Stack
+## 📌 Project Overview
 
-- Python
-- PostgreSQL
-- SQLAlchemy
-- Pandas
-- Git
-- GitHub
-- VS Code
+This project focuses on analyzing Uber pickup datasets to understand travel patterns, demand distribution, and mobility trends.
 
----
+The workflow includes:
 
-# 📅 Progress
-
-| Day | Module | Status |
-|------|--------|--------|
-| Day 1 | Project Setup & Dataset Collection | ✅ |
-| Day 2 | PostgreSQL ETL Pipeline | ✅ |
+* Data Collection
+* Data Loading into PostgreSQL
+* Data Profiling
+* Exploratory Data Analysis (EDA)
+* Data Cleaning
+* Feature Engineering
+* Machine Learning
+* Visualization
+* Model Evaluation
 
 ---
 
-# 🚀 Day 1
+## 🛠️ Tech Stack
 
-## Objective
-
-Initialize the project and prepare the development environment.
-
-### Completed
-
-- Created project structure
-- Configured Git repository
-- Created Python virtual environment
-- Installed required libraries
-- Downloaded and organized 19 CSV datasets
-
-### Learning
-
-- Git & GitHub
-- Virtual Environment
-- Project Structure
-- Dataset Organization
+* Python
+* PostgreSQL
+* Pandas
+* SQLAlchemy
+* Psycopg2
+* Git & GitHub
+* VS Code
 
 ---
 
-# 🚀 Day 2
+## 📂 Project Structure
 
-## Objective
-
-Build an automated ETL pipeline to load CSV files into PostgreSQL.
-
-### Completed
-
-- Connected Python with PostgreSQL
-- Created automated CSV loader
-- Imported 19 CSV files
-- Automatic table creation
-- Dynamic table naming
-- Encoding fallback support
-- Successfully loaded all datasets into PostgreSQL
-
-### Learning
-
-- SQLAlchemy
-- Pandas
-- PostgreSQL
-- ETL Pipeline
-- Error Handling
+```text
+Urban_Mobility_Analytics/
+│
+├── data/
+├── notebooks/
+├── src/
+│   ├── load_data.py
+│   └── profile_data.py
+│
+├── README.md
+└── requirements.txt
+```
 
 ---
 
-# 📌 Next Step
+## ✅ Progress Log
 
-- Data Profiling
-- Data Validation
-- Exploratory Data Analysis (EDA)
+### Day 1
 
+* Created project structure.
+* Initialized Git repository.
+* Set up Python virtual environment.
+* Created GitHub repository.
 
+### Day 2
 
+* Installed required Python libraries.
+* Created PostgreSQL database.
+* Configured SQLAlchemy connection.
 
-## 📅 Day 3 – PostgreSQL Integration & First Data Profiling
+### Day 3
 
-### 🎯 Objective
+* Imported Kaggle Uber datasets into PostgreSQL.
+* Verified successful data loading.
+* Listed all tables from the database.
 
-Connect Python to PostgreSQL and begin exploring the imported datasets.
+### Day 4
 
-### ✅ Tasks Completed
+* Created reusable `load_data()` function.
+* Created reusable `profile_dataset()` function.
+* Loaded tables dynamically from PostgreSQL.
+* Generated dataset profile including:
 
-* Connected Python application to PostgreSQL using **SQLAlchemy**.
-* Successfully tested the database connection.
-* Queried **`information_schema.tables`** to discover all available tables.
-* Verified that **19 datasets** were successfully imported into PostgreSQL.
-* Retrieved the first table dynamically from the database.
-* Loaded the first dataset into a **Pandas DataFrame** using `pd.read_sql()`.
-* Performed initial data profiling:
+  * Dataset shape
+  * Data types
+  * Summary statistics
+  * Missing values
 
-  * Checked dataset shape (**91,712 rows × 6 columns**).
-  * Inspected column names.
-  * Examined data types.
-  * Previewed the first five records using `df.head()`.
+---
 
-### 📚 Key Concepts Learned
+## 📊 Current Features
 
-* SQLAlchemy database connection
-* Executing SQL queries from Python
-* PostgreSQL metadata (`information_schema.tables`)
-* Reading SQL query results into Pandas
-* Difference between database metadata and actual table data
-* Basic DataFrame inspection (`shape`, `columns`, `dtypes`, `head()`)
+* PostgreSQL database connection
+* Dynamic table loading
+* Dataset profiling
+* Reusable Python functions
 
-### 🚀 Outcome
+---
 
-Successfully established the complete workflow from **Python → PostgreSQL → SQL Query → Pandas DataFrame**. This creates the foundation for automated profiling, data cleaning, and feature engineering in the upcoming stages of the project.
+## 🚀 Upcoming Tasks
 
-### 🔜 Next Goal (Day 4)
+* Duplicate value detection
+* Memory usage analysis
+* Data cleaning
+* Exploratory Data Analysis (EDA)
+* Feature Engineering
+* Data Visualization
+* Machine Learning Models
+* Model Evaluation
+* Dashboard Development
 
-* Perform detailed data quality assessment.
-* Check missing values and duplicate records.
-* Identify unnecessary columns.
-* Convert date/time columns to appropriate data types.
-* Begin automating profiling for all 19 datasets.
+---
+
+## 🎯 Learning Goals
+
+Through this project, I aim to strengthen my skills in:
+
+* Python Programming
+* SQL & PostgreSQL
+* Data Analysis
+* Exploratory Data Analysis
+* Machine Learning
+* Git & GitHub
+* Writing production-ready, reusable code
+
+---
+
+## 👨‍💻 Author
+
+**Abhishek Kumar**
+
+* Data Analyst / Database Developer
+* DS-365 (365-Day Data Scientist Challenge)
+
+---
+
+⭐ If you found this project useful, feel free to star the repository and follow my DS-365 journey.
