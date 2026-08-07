@@ -133,3 +133,14 @@ Through this project, I aim to strengthen my skills in:
 ---
 
 ⭐ If you found this project useful, feel free to star the repository and follow my DS-365 journey.
+
+
+
+## Project Progress
+
+| Day | Task | Status |
+|-----|------|--------|
+| Day 1 | Project setup & repository structure | ✅ |
+| Day 2 | Dataset collection & environment setup | ✅ |
+| Day 3 | PostgreSQL connection & initial data profiling | ✅ |
+| Day 4 | Data quality analysis | 🔄 |
