@@ -1,7 +1,10 @@
 from sqlalchemy import create_engine
 import pandas as pd
 
+# -----------------------------
 # Database Configuration
+# -----------------------------
+
 USERNAME = "abhishekmahto"
 PASSWORD = "PASSWORD"
 HOST = "localhost"
@@ -13,27 +16,55 @@ engine = create_engine(
     f"postgresql+psycopg2://{USERNAME}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 )
 
+
 # -----------------------------
 # Functions
 # -----------------------------
 
 def load_data(engine, table_name):
-    query = f"SELECT * FROM {table_name};"
+    query = f'SELECT * FROM "{table_name}";'
     return pd.read_sql(query, engine)
 
 
 def profile_dataset(df):
+
+    print("\n" + "=" * 50)
+    print("DATASET PROFILING")
+    print("=" * 50)
+
+    # 1. Shape
     print("\nShape:")
-    print(df.shape)
+    print(f"Rows: {df.shape[0]}")
+    print(f"Columns: {df.shape[1]}")
 
-    print("\nInfo:")
-    df.info()
+    # 2. Data Types
+    print("\nData Types:")
+    print(df.dtypes)
 
+    # 3. Missing Values
+    print("\nMissing Values:")
+
+    missing = df.isnull().sum()
+    missing_percentage = (missing / len(df)) * 100
+
+    missing_report = pd.DataFrame({
+        "Missing_Count": missing,
+        "Missing_Percentage": missing_percentage.round(2)
+    })
+
+    print(missing_report)
+
+    # 4. Duplicate Rows
+    print("\nDuplicate Rows:")
+    print(df.duplicated().sum())
+
+    # 5. Unique Values
+    print("\nUnique Values:")
+    print(df.nunique())
+
+    # 6. Summary Statistics
     print("\nSummary Statistics:")
     print(df.describe(include="all"))
-
-    print("\nMissing Values:")
-    print(df.isnull().sum())
 
 
 # -----------------------------
@@ -54,7 +85,7 @@ tables_df = pd.read_sql(query, engine)
 print("\nTables in Database:")
 print(tables_df)
 
-# First table name
+# Select first table
 first_table = tables_df["table_name"].iloc[0]
 
 print(f"\nLoading Table: {first_table}")
