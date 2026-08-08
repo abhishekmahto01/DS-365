@@ -55,15 +55,15 @@ def profile_dataset(df):
     print(missing_report)
 
     # 4. Duplicate Rows
-    print("\nDuplicate Rows:")
+    print("\n Duplicate Rows:")
     print(df.duplicated().sum())
 
     # 5. Unique Values
-    print("\nUnique Values:")
+    print("\n Unique Values:")
     print(df.nunique())
 
     # 6. Summary Statistics
-    print("\nSummary Statistics:")
+    print("\n Summary Statistics:")
     print(df.describe(include="all"))
 
 
@@ -124,34 +124,28 @@ def clean_dataset(df):
     print(df.shape)
 
 
+
+    #4.REMOVE THE DUPLICATED ENTRIES
+    duplicates_before = df.duplicated().sum()
+    print(f"\n  Duplicate Rows before cleaning: {duplicates_before}")
+    df = df.drop_duplicates()
+
+
+    print(f"\n Rows after removing Duplicates: {len(df)}")
+
+
+    #validation
+    print("\n Final data type:")
+    print(df.dtypes)
+
+
+    print("\n Final Shape of the dataset:")
+    print(df.shape)
+
+    print("\n Missing values after cleaning:")
+    print(df.isnull().sum())
+
     return df
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -163,3 +157,5 @@ df = load_data(engine, first_table)
 profile_dataset(df)
 
 cleaned_df = clean_dataset(df)
+
+
