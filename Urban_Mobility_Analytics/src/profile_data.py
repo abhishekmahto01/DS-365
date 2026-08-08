@@ -90,8 +90,76 @@ first_table = tables_df["table_name"].iloc[0]
 
 print(f"\nLoading Table: {first_table}")
 
+
+#lets make data cleaning function to remove the useless columns and remove the duplcate rows and column
+
+def clean_dataset(df):
+    print("\n" + "=" * 50)
+    print("\n Cleaning Dataset")
+    print("=" * 50)
+
+
+#1.remove columns whose are emplty or have more than 50% missing values
+
+    empty_columns = df.columns[df.isnull().isnull().all().tolist()]
+    print("\n Empty Columns:")
+    print(empty_columns)
+
+    df = df.dropna(axis=1, how='all')  # Drop empty columns
+
+
+
+#2.CONVERT THE DATE AND TIME COLUMNS INTO THEIR APPROPRIATE DATA TYPES
+    df["DATE"]=pd.to_datetime(df["DATE"], errors= "coerce")
+
+
+#3.CONVERT DATETIME COLUMNS INTO ITS APPROPRIATE DATA TYPE
+    df["TIME"]=pd.to_datetime(df["TIME"], format="%I:%M:%S %p", errors= "coerce").dt.time
+
+    print("\nData Types after cleaning:")
+    print(df.dtypes)
+
+
+    print("\n Now the new cleaned dataset shape is :")
+    print(df.shape)
+
+
+    return df
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Load Data
 df = load_data(engine, first_table)
 
 # Profile Dataset
 profile_dataset(df)
+
+cleaned_df = clean_dataset(df)
