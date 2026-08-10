@@ -135,7 +135,50 @@ def clean_dataset(df):
 
 #5.create pickup datetime
     df["pickup_datetime"] = pd.to_datetime(df["DATE"].astype(str) + " " + df["TIME"].astype(str),errors="coerce")
-    
+
+# --------------------------------------------------
+# FEATURE ENGINEERING FROM PICKUP DATETIME
+# --------------------------------------------------
+
+    df["pickup_date"] = df["pickup_datetime"].dt.date
+
+    df["pickup_time"] = df["pickup_datetime"].dt.time
+
+    df["pickup_hour"] = df["pickup_datetime"].dt.hour
+
+    df["pickup_minute"] = df["pickup_datetime"].dt.minute
+
+    df["pickup_second"] = df["pickup_datetime"].dt.second
+
+    df["pickup_day"] = df["pickup_datetime"].dt.day
+
+    df["pickup_month"] = df["pickup_datetime"].dt.month
+
+    df["pickup_year"] = df["pickup_datetime"].dt.year
+
+    df["pickup_weekday"] = df["pickup_datetime"].dt.dayofweek
+
+    df["pickup_week"] = df["pickup_datetime"].dt.isocalendar().week
+
+    df["pickup_quarter"] = df["pickup_datetime"].dt.quarter
+
+    df["pickup_dayofyear"] = df["pickup_datetime"].dt.dayofyear
+
+    df["is_weekend"] = (
+        df["pickup_datetime"].dt.dayofweek >= 5
+    )
+
+
+
+
+
+
+
+
+
+
+
+
 
     return df
 
