@@ -121,9 +121,21 @@ def clean_dataset(df):
 
 
 #3.Convert date columns properly
-    df["Date"] =pd.to_datetime(df["Date"],errors="coerce")
-    
+    df["DATE"] =pd.to_datetime(df["DATE"],errors="coerce")
 
+
+
+
+#4.Convert time columns properly
+
+    df["TIME"] = pd.to_datetime(df["TIME"],format="%I:%M:%S %P", errors="coerce").dt.time
+    print("\n Datatype after conversion:")
+    print(df.dtypes)
+
+
+#5.create pickup datetime
+    df["pickup_datetime"] = pd.to_datetime(df["DATE"].astype(str) + " " + df["TIME"].astype(str),errors="coerce")
+    
 
     return df
 
