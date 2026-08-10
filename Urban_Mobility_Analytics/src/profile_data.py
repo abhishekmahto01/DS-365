@@ -91,59 +91,23 @@ first_table = tables_df["table_name"].iloc[0]
 print(f"\nLoading Table: {first_table}")
 
 
-#lets make data cleaning function to remove the useless columns and remove the duplcate rows and column
+#MAKING A FUNCTION CLEAN_DATASET IN WHICH REMOVE THE NULL VALUES OF DATASET AND MAKING FEATURE ENGINEERING
 
 def clean_dataset(df):
-    print("\n" + "=" * 50)
-    print("\n Cleaning Dataset")
+    print("\n" + "=" *50)
+    print("CLEANING DATASET")
     print("=" * 50)
 
 
-#1.remove columns whose are emplty or have more than 50% missing values
-
-    empty_columns = df.columns[df.isnull().isnull().all().tolist()]
-    print("\n Empty Columns:")
-    print(empty_columns)
-
-    df = df.dropna(axis=1, how='all')  # Drop empty columns
+#1.REMOVE COMPLETELY EMPTY COLUMNS
+    empty_cols = df.columns[df.isnull().all().tolist()]
+    print("/n Removing the empty columns ")
+    print(empty_cols)
 
 
-
-#2.CONVERT THE DATE AND TIME COLUMNS INTO THEIR APPROPRIATE DATA TYPES
-    df["DATE"]=pd.to_datetime(df["DATE"], errors= "coerce")
-
-
-#3.CONVERT DATETIME COLUMNS INTO ITS APPROPRIATE DATA TYPE
-    df["TIME"]=pd.to_datetime(df["TIME"], format="%I:%M:%S %p", errors= "coerce").dt.time
-
-    print("\nData Types after cleaning:")
-    print(df.dtypes)
-
-
-    print("\n Now the new cleaned dataset shape is :")
+    df = df.dropna(axis=1,how="all")
+    print("\n Shape of the dataset after removing the empty columns:")
     print(df.shape)
-
-
-
-    #4.REMOVE THE DUPLICATED ENTRIES
-    duplicates_before = df.duplicated().sum()
-    print(f"\n  Duplicate Rows before cleaning: {duplicates_before}")
-    df = df.drop_duplicates()
-
-
-    print(f"\n Rows after removing Duplicates: {len(df)}")
-
-
-    #validation
-    print("\n Final data type:")
-    print(df.dtypes)
-
-
-    print("\n Final Shape of the dataset:")
-    print(df.shape)
-
-    print("\n Missing values after cleaning:")
-    print(df.isnull().sum())
 
     return df
 
