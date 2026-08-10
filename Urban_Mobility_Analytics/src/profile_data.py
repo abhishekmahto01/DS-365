@@ -137,7 +137,7 @@ def clean_dataset(df):
     df["pickup_datetime"] = pd.to_datetime(df["DATE"].astype(str) + " " + df["TIME"].astype(str),errors="coerce")
 
 # --------------------------------------------------
-# FEATURE ENGINEERING FROM PICKUP DATETIME
+#6.FEATURE ENGINEERING FROM PICKUP DATETIME
 # --------------------------------------------------
 
     df["pickup_date"] = df["pickup_datetime"].dt.date
@@ -170,6 +170,17 @@ def clean_dataset(df):
 
 
 
+
+#7.Final validation
+
+    print("\n = * 50")
+    print("\n Final Validation of the dataset after cleaning and feature engineering:")
+    print(df.shape)
+    print(f"\n final datatypes: {df.dtypes}")
+    print("\n Missing values after cleaning: {df.isnull().sum()}")
+    print("\n Duplicate rows after cleaning: {df.duplicated().sum()}")
+    print("\n Sample Transformed Dataset:")
+    print(df[["DATE","TIME","pickup_datetime","pickup_date","pickup_time","pickup_hour","pickup_minute","pickup_second","pickup_day","pickup_month","pickup_year","pickup_weekday","pickup_week","pickup_quarter","pickup_dayofyear","is_weekend"]].head())
 
 
 
