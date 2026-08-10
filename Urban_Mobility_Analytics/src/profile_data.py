@@ -112,9 +112,17 @@ def clean_dataset(df):
 
 #2.Remove duplicate Rows
     duplicated_rows = df.duplicated().sum()
-    print(f"\n Number of duplicated rows: {dupicated_rows}")
+    print(f"\n Number of duplicated rows: {duplicated_rows}")
     df = df.drop_duplicates().copy()
     print(f"\n Rows after removing duplicates : {len(df)}")
+
+
+
+
+
+#3.Convert date columns properly
+    df["Date"] =pd.to_datetime(df["Date"],errors="coerce")
+    
 
 
     return df
