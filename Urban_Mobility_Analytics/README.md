@@ -144,3 +144,96 @@ Through this project, I aim to strengthen my skills in:
 | Day 2 | Dataset collection & environment setup | ✅ |
 | Day 3 | PostgreSQL connection & initial data profiling | ✅ |
 | Day 4 | Data quality analysis | 🔄 |
+
+
+
+
+## Day 4 — Data Cleaning & Feature Engineering
+
+### Data Profiling
+
+Performed initial data profiling on the `other_american_b01362` dataset.
+
+* Rows: **91,712**
+* Columns: **6**
+* Useful Columns: **3**
+* Completely Empty Columns: **3**
+* Duplicate Rows: **588**
+* Missing Values in Useful Columns: **0**
+* Unique Dates: **92**
+* Unique Pickup Addresses: **10,608**
+
+### Data Cleaning
+
+Implemented a basic data-cleaning pipeline using Pandas:
+
+* Removed completely empty columns.
+* Removed duplicate records.
+* Converted `DATE` from string to datetime.
+* Converted `TIME` from string to time format.
+* Validated missing values after cleaning.
+* Validated duplicate records after cleaning.
+
+After cleaning:
+
+* Rows: **91,124**
+* Columns: **3**
+* Missing values in useful columns: **0**
+* Duplicate rows: **0**
+
+### Feature Engineering
+
+Created a combined `pickup_datetime` column from `DATE` and `TIME`.
+
+Derived time-based analytical features:
+
+* `pickup_date`
+* `pickup_time`
+* `pickup_hour`
+* `pickup_minute`
+* `pickup_second`
+* `pickup_day`
+* `pickup_month`
+* `pickup_year`
+* `pickup_weekday`
+* `pickup_week`
+* `pickup_quarter`
+* `pickup_dayofyear`
+* `is_weekend`
+
+These features will be used later for time-based demand analysis and exploratory data analysis (EDA).
+
+### Current Pipeline
+
+```text
+Raw PostgreSQL Data
+        ↓
+Data Profiling
+        ↓
+Data Quality Checks
+        ↓
+Remove Empty Columns
+        ↓
+Remove Duplicates
+        ↓
+Date & Time Transformation
+        ↓
+Pickup Datetime Creation
+        ↓
+Feature Engineering
+        ↓
+EDA (Next)
+```
+
+### Day 4 Status
+
+**Completed ✅**
+
+* Data profiling
+* Data cleaning
+* Duplicate removal
+* Date/time transformation
+* Feature engineering
+* Code pushed to GitHub
+
+**Next:** Create a separate cleaned table in PostgreSQL and begin Exploratory Data Analysis (EDA).
