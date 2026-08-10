@@ -109,6 +109,14 @@ def clean_dataset(df):
     print("\n Shape of the dataset after removing the empty columns:")
     print(df.shape)
 
+
+#2.Remove duplicate Rows
+    duplicated_rows = df.duplicated().sum()
+    print(f"\n Number of duplicated rows: {dupicated_rows}")
+    df = df.drop_duplicates().copy()
+    print(f"\n Rows after removing duplicates : {len(df)}")
+
+
     return df
 
 
@@ -118,7 +126,7 @@ def clean_dataset(df):
 df = load_data(engine, first_table)
 
 # Profile Dataset
-profile_dataset(df)
+profile_dataset(df) 
 
 cleaned_df = clean_dataset(df)
 
