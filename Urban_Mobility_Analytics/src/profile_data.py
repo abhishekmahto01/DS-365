@@ -128,7 +128,7 @@ def clean_dataset(df):
 
 #4.Convert time columns properly
 
-    df["TIME"] = pd.to_datetime(df["TIME"],format="%I:%M:%S %P", errors="coerce").dt.time
+    df["TIME"] = pd.to_datetime(df["TIME"],format="%I:%M:%S %p", errors="coerce").dt.time
     print("\n Datatype after conversion:")
     print(df.dtypes)
 
@@ -197,11 +197,11 @@ def clean_dataset(df):
 
 
 # Load Data
-df = load_data(engine, first_table)
+if __name__ == "__main__":
+    df = load_data(engine, first_table)
 
-# Profile Dataset
-profile_dataset(df) 
+    profile_dataset(df)
 
-cleaned_df = clean_dataset(df)
+    cleaned_df = clean_dataset(df)
 
 

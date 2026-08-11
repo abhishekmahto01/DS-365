@@ -237,3 +237,56 @@ EDA (Next)
 * Code pushed to GitHub
 
 **Next:** Create a separate cleaned table in PostgreSQL and begin Exploratory Data Analysis (EDA).
+
+
+
+## 📅 Day 5 – Exploratory Data Analysis
+
+### 🎯 Objective
+Start exploratory data analysis on the cleaned and feature-engineered Uber pickup dataset.
+
+### ✅ Work Completed
+
+- Connected the EDA notebook with the PostgreSQL database.
+- Verified the `urban_mobility_analytics` database connection.
+- Dynamically discovered and loaded the dataset from PostgreSQL.
+- Reused the existing data cleaning and feature engineering pipeline.
+- Created the `cleaned_df` dataset for analysis.
+- Verified dataset shape, columns, data types, missing values, and duplicate records.
+- Prepared the dataset for time-based exploratory analysis.
+- Started hourly pickup demand analysis using the `pickup_hour` feature.
+
+### 📊 EDA Analysis Started
+
+The following analysis areas have been prepared:
+
+- Dataset overview
+- Data type analysis
+- Missing value analysis
+- Duplicate analysis
+- Descriptive statistics
+- Pickup demand by hour
+
+### 🧠 Key Learning
+
+The EDA phase focuses on understanding patterns and relationships in the data before building models or dashboards.
+
+Feature engineering performed earlier makes time-based analysis possible, including:
+
+- Pickup hour
+- Pickup day
+- Pickup month
+- Pickup weekday
+- Pickup week
+- Pickup quarter
+- Weekend indicator
+
+### 🚧 Next Steps
+
+- Complete hourly pickup demand analysis
+- Analyze pickup demand by weekday
+- Compare weekday vs weekend demand
+- Create hour × weekday heatmap
+- Perform distribution analysis
+- Identify important business insights
+- Document EDA findings
